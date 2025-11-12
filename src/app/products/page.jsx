@@ -8,14 +8,16 @@ export default function ProductSection() {
       href: "ai-hub",
       text: "Единая платформа для бизнеса, которая объединяет нейросети и инструменты автоматизации. Работайте с ChatGPT, Claude, Gemini и другими через единый интерфейс с аналитикой, безопасным хранением и доступами для сотрудников.",
       btn: "Подробнее о AI-Хаб",
-      image: "/vecteezy-ai-tech-businessman-show-virtual-graphic-global-internet-45364192_VabhBlhm.mp4",
+      image:
+        "/compressed_vecteezy-ai-tech-businessman-show-virtual-graphic-global-internet-45364192_vabhblhm.mp4",
     },
     {
       title: "AI-Автоматизация производств",
       href: "automation",
       text: "Мы разрабатываем индивидуальные AI-системы под конкретные задачи вашего предприятия — от предиктивной аналитики и компьютерного зрения до оптимизации энергопотребления и планирования ресурсов.",
       btn: "Подробнее о решениях",
-      image: "/vecteezy_ai-technology-the-future-is-now_52003464_compressed_watermarkless.mp4",
+      image:
+        "/vecteezy_ai-technology-the-future-is-now_52003464_compressed_watermarkless.mp4",
     },
   ];
 

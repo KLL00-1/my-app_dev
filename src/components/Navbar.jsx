@@ -68,7 +68,9 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.container}>
-        <div className={styles.logo}>AISystems</div>
+        <div className={styles.logo}>
+          <span style={{ color: "#3abef9" }}>AI</span>Systems
+        </div>
 
         {/* Desktop Menu */}
         <div className={styles.menuDesktop}>
