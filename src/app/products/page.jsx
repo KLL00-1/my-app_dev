@@ -15,7 +15,7 @@ export default function ProductSection() {
       href: "automation",
       text: "Мы разрабатываем индивидуальные AI-системы под конкретные задачи вашего предприятия — от предиктивной аналитики и компьютерного зрения до оптимизации энергопотребления и планирования ресурсов.",
       btn: "Подробнее о решениях",
-      image: "/vecteezy_ai-technology-the-future-is-now_52003464.mov",
+      image: "/vecteezy_ai-technology-the-future-is-now_52003464_compressed_watermarkless.mp4",
     },
   ];
 
