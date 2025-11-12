@@ -1,0 +1,104 @@
+.section {
+  /* background-color: #0e1117;
+  color: #ffffff;
+  padding: 6rem 1.5rem;
+  text-align: center; */
+  position: relative;
+  /* overflow: hidden; */
+}
+
+.container {
+  max-width: 1100px;
+  margin: 2rem auto 0 0;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  color: #b3b3b3;
+  font-size: 1.1rem;
+  /* max-width: 650px; */
+  margin: 0 auto 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(58, 190, 249, 0.15);
+  border-color: rgba(58, 190, 249, 0.4);
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #3abef9;
+  margin-bottom: 0.75rem;
+}
+
+.problem,
+.solution {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #d1d1d1;
+  margin-bottom: 0.5rem;
+}
+
+.problem span,
+.solution span {
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Анимация появления */
+.fadeInUp {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.glow {
+  position: absolute;
+  bottom: -100px;
+  width: 70%;
+  height: 400px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(58, 190, 249, 0.3) 0%,
+    transparent 70%
+  );
+  filter: blur(100px);
+  z-index: 0;
+}

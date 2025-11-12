@@ -1,0 +1,112 @@
+.footer {
+  bottom: 0;
+  color: #e5e5e5;
+  padding: 2rem 24px 2rem 0;
+  font-family: "Inter", sans-serif;
+  width: 100%;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 5px;
+}
+
+.brand {
+  flex: 1 1 250px;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #3abef9;
+}
+
+.logo span {
+  color: #fff;
+}
+
+.description {
+  color: #b3b3b3;
+  font-size: 0.95rem;
+  margin-top: 0.75rem;
+  max-width: 300px;
+  line-height: 1.5;
+}
+
+.linksGroup {
+  display: flex;
+  flex: 2;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.column a {
+  color: #b3b3b3;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.column a:hover {
+  color: #3abef9;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.socials img {
+  width: 22px;
+  height: 22px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.socials img:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: #8a8a8a;
+}
+
+.privacy {
+  color: #8a8a8a;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.privacy:hover {
+  color: #3abef9;
+}
+

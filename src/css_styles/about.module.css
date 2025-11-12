@@ -1,0 +1,118 @@
+.section {
+  position: relative;
+}
+
+.container {
+  margin: 2rem 24px 0 0;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.subtitle {
+  color: #b3b3b3;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0 auto 3rem;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+/* Статистика */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  animation: fadeInUp .3s ease forwards;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(58, 190, 249, 0.5);
+  box-shadow: 0 0 20px rgba(58, 190, 249, 0.15);
+}
+
+.card h3 {
+  font-size: 2rem;
+  color: #3abef9;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+/* Партнёры */
+.partners {
+  animation: fadeInUp 1.6s ease forwards;
+}
+
+.partnersTitle {
+  color: #8ab8e0;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.logos img {
+  height: 40px;
+  filter: grayscale(100%) brightness(80%);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.logos img:hover {
+  filter: grayscale(0%) brightness(100%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Анимация появления */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.glow {
+  position: absolute;
+  bottom: -100px;
+  width: 70%;
+  height: 400px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(58, 190, 249, 0.3) 0%,
+    transparent 70%
+  );
+  filter: blur(100px);
+  z-index: 0;
+  animation: scaleAndGo 3s infinite;
+}
