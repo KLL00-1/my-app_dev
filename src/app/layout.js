@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
         <div className="work_space" style={{ position: 'relative', zIndex: 1, color: 'white' }}>
           <Navbar />
           {children}
-          <AnimatedLogo />
+          {/* <AnimatedLogo /> */}
           <Footer />
         </div>
       </body>

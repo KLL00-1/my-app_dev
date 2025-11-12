@@ -7,6 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 // import { useRouter } from "next/compat/router";
 import { match } from "path-to-regexp";
 import { useCallback, useEffect, useState } from "react";
+import AnimatedLogo from "./Logo";
 
 export default function Navbar() {
   const path = usePathname();
@@ -71,7 +72,7 @@ export default function Navbar() {
         <div className={styles.logo}>
           <span style={{ color: "#3abef9" }}>AI</span>Systems
         </div>
-
+        {/* <AnimatedLogo /> */}
         {/* Desktop Menu */}
         <div className={styles.menuDesktop}>
           {menuItems.map((item) => (

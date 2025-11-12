@@ -23,7 +23,7 @@
 }
 
 .logo {
-  font-size: 1.8rem;
+  font-size: calc(var(--index));
   font-weight: 700;
   color: #3abef9;
 }
@@ -110,3 +110,24 @@
   color: #3abef9;
 }
 
+@media (max-width: 1500px) {
+  .menuItem {
+    font-size: calc(var(--index) * 0.1);
+  }
+  .description {
+    font-size: calc(var(--index) * 0.08);
+    margin-top: calc(var(--index) * 0.05);
+  }
+  .title {
+    font-size: calc(var(--index) * 0.1);
+    margin-bottom: calc(var(--index) * 0.05);
+  }
+
+  .column a {
+    font-size: calc(var(--index) * 0.09);
+  }
+  .bottom {
+    padding-top: calc(var(--index) * 0.09);
+    font-size: calc(var(--index) * 0.09);
+  }
+}

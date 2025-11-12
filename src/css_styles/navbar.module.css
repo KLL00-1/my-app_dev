@@ -9,6 +9,7 @@ backdrop-filter: blur(8px);
 background-color: rgba(0, 0, 0, 0.3);
 border-bottom: 1px solid rgba(128, 0, 128, 0.3);
 font-family: 'Arial', sans-serif;
+position: relative;
 }
 
 .container {
@@ -23,7 +24,7 @@ height: 64px;
 
 .logo {
 color: white;
-font-size: 1.75rem;
+font-size: calc(var(--index));
 font-weight: bold;
 letter-spacing: 1px;
 }
@@ -39,6 +40,7 @@ color: white;
 text-decoration: none;
 font-weight: 500;
 transition: color 0.3s ease;
+/* font-size: calc(var(--index)*0.01); */
 }
 
 .menuItem:hover {
@@ -71,7 +73,11 @@ border: none;
 cursor: pointer;
 }
 
-
+@media (max-width:1500px){
+    .menuItem{
+        font-size: calc(var(--index)*0.1);
+    }
+}
 
 /* Responsive */
 @media (min-width: 768px) {
