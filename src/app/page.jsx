@@ -20,8 +20,6 @@ export default function Home() {
           <button className={styles.secondaryBtn}>Посмотреть кейсы →</button>
         </div>
       </div>
-      <div className={styles.glow}></div>
-      {/* <Link className={styles.next} href={'/what-we-do'}>1</Link> */}
     </section>
   );
 }

@@ -18,8 +18,8 @@ export default function Footer() {
           <div className={styles.linksGroup}>
             <div className={styles.column}>
               <h4 className={styles.title}>Решения</h4>
-              <a href="/products/automation">AI-Автоматизация</a>
-              <a href="/products/ai-hub">AI-Хаб</a>
+              <Link href="/products/automation">AI-Автоматизация</Link>
+              <Link href="/products/ai-hub">AI-Хаб</Link>
             </div>
 
             <div className={styles.column}>

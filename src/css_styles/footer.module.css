@@ -1,9 +1,10 @@
 .footer {
+  position: fixed;
   bottom: 0;
   color: #e5e5e5;
   padding: 2rem 24px 2rem 0;
   font-family: "Inter", sans-serif;
-  width: 100%;
+  width: 1600px;
 }
 
 .container {
@@ -111,9 +112,6 @@
 }
 
 @media (max-width: 1500px) {
-  .menuItem {
-    font-size: calc(var(--index) * 0.1);
-  }
   .description {
     font-size: calc(var(--index) * 0.08);
     margin-top: calc(var(--index) * 0.05);
@@ -130,4 +128,62 @@
     padding-top: calc(var(--index) * 0.09);
     font-size: calc(var(--index) * 0.09);
   }
+}
+@media (max-width: 1650px) {
+  .footer {
+    width: 1400px;
+  }
+}
+@media (max-width: 1450px) {
+  .footer {
+    width: 1200px;
+  }
+}
+@media (max-width: 1250px) {
+  .footer {
+    width: 100vw;
+    left: 0;
+    padding: 0 24px 0 20px;
+  }
+}
+@media (max-width: 950px) {
+  .logo {
+    font-size: 20px;
+  }
+
+  .description {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  .title {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .column a {
+    font-size: 12px;
+   text-wrap: nowrap;
+  }
+  .bottom {
+    padding-top: 10px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 880px) {
+  .linksGroup div:first-child {
+    display: none;
+  }
+}
+@media (max-width: 680px) {
+  .column {
+    flex-direction: row;
+  }
+  .column h4 {
+    display: none;
+  }
+}
+@media (max-width: 460px) {
+ .linksGroup{
+  justify-content: flex-start;
+ }
 }

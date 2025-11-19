@@ -66,7 +66,6 @@ export default function ProductSection() {
           ))}
         </div>
       </div>
-      <div className={styles.glow}></div>
     </section>
   );
 }

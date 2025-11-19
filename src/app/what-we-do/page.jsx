@@ -57,7 +57,6 @@ export default function WhatWeDoSection() {
           ))}
         </div>
       </div>
-      <div className={styles.glow}></div>
     </section>
   );
 }

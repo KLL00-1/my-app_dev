@@ -76,7 +76,6 @@ export default function CasesSection() {
           ))}
         </div>
       </div>
-      <div className={styles.glow}></div>
     </section>
   );
 }

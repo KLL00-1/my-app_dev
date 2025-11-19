@@ -37,7 +37,6 @@ export default function CallToAction() {
           </div>
         </div>
       </div>
-      <div className={styles.glow}></div>
     </section>
   );
 }

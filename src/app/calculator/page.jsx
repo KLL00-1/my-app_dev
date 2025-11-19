@@ -81,7 +81,6 @@ export default function RoiCalculator() {
           </div>
         </div>
       </div>
-      <div className={styles.glow}></div>
     </section>
   );
 }

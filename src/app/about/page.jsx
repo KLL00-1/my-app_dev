@@ -56,7 +56,6 @@ export default function AboutCompany() {
           </div>
         </div>
       </div>
-      <div className={styles.glow}></div>
     </section>
   );
 }

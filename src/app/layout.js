@@ -34,9 +34,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${geiRoboto.variable} ${geiRoboto.variable}`}>
         <BackgroundWaves />
+        <div className='glow'></div>
         <div className="work_space" style={{ position: 'relative', zIndex: 1, color: 'white' }}>
           <Navbar />
-          {children}
+          <div className="content_layout" >
+            {children}</div>
           {/* <AnimatedLogo /> */}
           <Footer />
         </div>

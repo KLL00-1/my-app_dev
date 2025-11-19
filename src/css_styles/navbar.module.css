@@ -1,93 +1,119 @@
 /* components/Navbar.module.css */
 .navbar {
-/* position: fixed; */
-width: 100%;
-top: 0;
-left: 0;
-z-index: 20;
-backdrop-filter: blur(8px);
-background-color: rgba(0, 0, 0, 0.3);
-border-bottom: 1px solid rgba(128, 0, 128, 0.3);
-font-family: 'Arial', sans-serif;
-position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 20;
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(128, 0, 128, 0.3);
+  font-family: "Arial", sans-serif;
+  /* position: relative; */
 }
 
 .container {
-/* max-width: 1200px; */
-margin: 0 auto;
-padding: 0 24px 0 0;
-display: flex;
-justify-content: space-between;
-align-items: center;
-height: 64px;
+  width: 1600px;
+  margin: 0 auto;
+  padding: 0 24px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
 }
 
 .logo {
-color: white;
-font-size: calc(var(--index));
-font-weight: bold;
-letter-spacing: 1px;
+  color: white;
+  font-size: calc(var(--index));
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .menuDesktop {
-display: none;
-align-items: center;
-gap: 32px;
+  /* display: none; */
+  align-items: center;
+  display: flex;
+  gap: 32px;
 }
 
 .menuItem {
-color: white;
-text-decoration: none;
-font-weight: 500;
-transition: color 0.3s ease;
-/* font-size: calc(var(--index)*0.01); */
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  /* font-size: calc(var(--index)*0.01); */
 }
 
 .menuItem:hover {
-color: #b06bf6;
+  color: #b06bf6;
 }
 
-.loginButton {
-padding: 6px 16px;
-background-color: #6b21a8;
-border-radius: 8px;
-color: white;
-text-decoration: none;
-font-weight: 500;
-box-shadow: 0 4px 8px rgba(107, 33, 168, 0.3);
-transition: background-color 0.3s ease, box-shadow 0.3s ease;
+.mobileMenu {
+  display: none;
+  position: relative;
+  width: max-content;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 10;
 }
 
-.loginButton:hover {
-background-color: #8b5cf6;
-box-shadow: 0 6px 12px rgba(107, 33, 168, 0.5);
+.mobileMenuItem {
+  right: 15px;
+  width: 160px;
+  padding: 10px 0;
+  text-decoration: none;
+  position: absolute;
+  cursor: pointer;
+  color: white;
+  text-wrap-mode: nowrap;
+  background-color: rgba(0, 0, 0, 0.9);
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 10px;
+  transition: 1s;
+}
+@media (max-width: 1650px) {
+  .container {
+    width: 1400px;
+  }
 }
 
-.mobileButton {
-display: flex;
-align-items: center;
-color: white;
-font-size: 1.5rem;
-background: none;
-border: none;
-cursor: pointer;
+@media (max-width: 1500px) {
+  .menuItem {
+    font-size: calc(var(--index) * 0.1);
+  }
 }
+@media (max-width: 1450px) {
+  .container {
+    width: 1200px;
+  }
+}
+@media (max-width: 1250px) {
+  .container {
+    width: 100vw;
+    padding: 0 24px 0 20px;
 
-@media (max-width:1500px){
-    .menuItem{
-        font-size: calc(var(--index)*0.1);
-    }
+  }
 }
 
 /* Responsive */
-@media (min-width: 768px) {
-.menuDesktop {
-display: flex;
+@media (max-width: 950px) {
+  .menuDesktop {
+    display: none;
+  }
+  .mobileMenu {
+    display: block;
+  }
+  .logo {
+  font-size: 20px;
+
 }
-.mobileButton {
-display: none;
 }
-.menuMobile {
-display: none;
-}
+@media (max-width: 500px) {
+  .mobileMenuItem{
+    font-size: 15px;
+      padding: 5px 0;
+      width: 140px;
+      right: -10px;
+      top: -10px;
+  }
 }
