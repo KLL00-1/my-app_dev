@@ -148,20 +148,20 @@ export default function Navbar() {
                 key={item.label}
                 href={item.href}
                 style={{
-                  right: checkLastRoute(item) ? "180px" : "",
+                  right: checkLastRoute(item) ? "75px" : "",
+                  // transform:
+                  //   item.active && checkLastRoute(item)
+                  //     ? "translate(80px, 49px) scale(1.2)"
+                  //     : item.active
+                  //     ? "translate(-80px, 49px)"
+                  //     : "",
+                  zIndex: checkLastRoute(item) ? -(index + 1) : "",
+                  // right: width <= 500 && checkLastRoute(item) ? "135px" : "",
+                  // right: width <= 440 && checkLastRoute(item) ? "75px" : "",
                   transform:
                     item.active && checkLastRoute(item)
-                      ? "translate(80px, 49px) scale(1.2)"
-                      : item.active
-                      ? "translate(-80px, 49px)"
-                      : "",
-                  zIndex: checkLastRoute(item) ? -(index + 1) : "",
-                  right: width <= 500 && checkLastRoute(item) ? "135px" : "",
-                  right: width <= 440 && checkLastRoute(item) ? "75px" : "",
-                  transform:
-                    width <= 500 && item.active && checkLastRoute(item)
                       ? "translate(75px, 35px) scale(1.2)"
-                      : item.active && width <= 500
+                      : item.active
                       ? "translate(-75px, 35px)"
                       : "",
                   zIndex: checkLastRoute(item) ? -(index + 1) : "",

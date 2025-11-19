@@ -90,22 +90,6 @@
   }
 }
 
-/* Фоновое свечение */
-.glow {
-  position: absolute;
-  bottom: -100px;
-  width: 70%;
-  height: 400px;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(58, 190, 249, 0.3) 0%,
-    transparent 70%
-  );
-  filter: blur(100px);
-  z-index: 0;
-  animation: scaleAndGo 3s infinite;
-}
-
 @media (max-width: 1450px) {
   .subtitle {
     font-size: calc(var(--index) * 0.3);
