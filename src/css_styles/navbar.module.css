@@ -71,6 +71,14 @@
   border-radius: 10px;
   transition: 1s;
 }
+  .back_page{
+    position: absolute;
+    left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+  }
 @media (max-width: 1650px) {
   .container {
     width: 1400px;
@@ -103,6 +111,7 @@
   .mobileMenu {
     display: block;
   }
+
   .logo {
   font-size: 20px;
 

@@ -181,6 +181,9 @@
   .column h4 {
     display: none;
   }
+  .brand{
+    display: none;
+  }
 }
 @media (max-width: 460px) {
  .linksGroup{

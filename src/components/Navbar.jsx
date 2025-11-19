@@ -170,6 +170,9 @@ export default function Navbar() {
                 className={styles.mobileMenuItem}
               >
                 {item.label}
+                {checkLastRoute(item) && !item.active && (
+                  <span className={styles.back_page}>←</span>
+                )}
               </Link>
             );
           })}
