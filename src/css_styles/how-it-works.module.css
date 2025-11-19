@@ -95,6 +95,6 @@
     flex-direction: column;
   }
   .step {
-  max-width: none;
-}
+    max-width: none;
+  }
 }
