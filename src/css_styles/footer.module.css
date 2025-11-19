@@ -162,7 +162,7 @@
 
   .column a {
     font-size: 12px;
-   text-wrap: nowrap;
+    text-wrap: nowrap;
   }
   .bottom {
     padding-top: 10px;
@@ -175,18 +175,22 @@
   }
 }
 @media (max-width: 680px) {
+  .footer {
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.3);
+  }
   .column {
     flex-direction: row;
   }
   .column h4 {
     display: none;
   }
-  .brand{
+  .brand {
     display: none;
   }
 }
 @media (max-width: 460px) {
- .linksGroup{
-  justify-content: flex-start;
- }
+  .linksGroup {
+    justify-content: flex-start;
+  }
 }

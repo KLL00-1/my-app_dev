@@ -55,8 +55,7 @@
   overflow-y: scroll;
 }
 @media (max-width: 680px) {
- 
-.content_layout {
-  height: 78vh;
-}
+  .content_layout {
+    height: 78vh;
+  }
 }
