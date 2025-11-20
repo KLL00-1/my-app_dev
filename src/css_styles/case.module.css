@@ -76,3 +76,9 @@
     transform: translateY(0);
   }
 }
+
+@media (max-width: 1500px) {
+  .section {
+    padding: 0 20px 80px 0;
+  }
+}
