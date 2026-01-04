@@ -12,6 +12,20 @@ export default function Chat({ setSwitcher }) {
   const bottomRef = useRef(null);
 
   useEffect(() => {
+    if (!window.visualViewport) return;
+
+    const handleResize = () => {
+      const vh = window.visualViewport.height;
+      const chatEl = document.querySelector(`.${styles.chat}`);
+      if (chatEl) chatEl.style.height = `${vh}px`;
+    };
+
+    window.visualViewport.addEventListener("resize", handleResize);
+    return () =>
+      window.visualViewport.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
   const initialized = useRef(false); // 👈 ГАРД
@@ -22,9 +36,7 @@ export default function Chat({ setSwitcher }) {
     setTimeout(() => setVisible(true), 200);
     if (!messages.length)
       setTimeout(() => {
-        typeBotMessage(
-          "Привет! 👋 Что ты хочешь узнать?"
-        );
+        typeBotMessage("Привет! 👋 Что ты хочешь узнать?");
       }, 600);
   }, []);
 
@@ -62,19 +74,55 @@ export default function Chat({ setSwitcher }) {
   };
 
   return (
+    // <div className={`${styles.wrapper} ${visible ? styles.show : ""}`}>
+    //   <div className={styles.chat}>
+    //     <div className={styles.header}>
+    //       <div className={styles.status} />
+    //       <span>AI-Консультант</span>
+    //       <span
+    //         style={{ marginLeft: "auto", cursor: "pointer" }}
+    //         onClick={() => setSwitcher("site")}
+    //       >
+    //         Перейти на сайт
+    //       </span>
+    //     </div>
+
+    //     <div className={styles.messages}>
+    //       {messages.map((msg, i) => (
+    //         <div
+    //           key={i}
+    //           className={`${styles.message} ${
+    //             msg.from === "bot" ? styles.bot : styles.user
+    //           }`}
+    //         >
+    //           {msg.text}
+    //           {isTyping && i === messages.length - 1 && msg.from === "bot" && (
+    //             <span className={styles.cursor}>▍</span>
+    //           )}
+    //         </div>
+    //       ))}
+    //       <div ref={bottomRef} />
+    //     </div>
+
+    //     <div className={styles.inputBox}>
+    //       <input
+    //         type="text"
+    //         placeholder="Задайте вопрос об AI-автоматизации…"
+    //         value={input}
+    //         onChange={(e) => setInput(e.target.value)}
+    //         onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+    //         disabled={isTyping}
+    //       />
+    //       <button onClick={sendMessage} disabled={isTyping}>
+    //         ➜
+    //       </button>
+    //     </div>
+
+    //   </div>
+    // </div>
     <div className={`${styles.wrapper} ${visible ? styles.show : ""}`}>
       <div className={styles.chat}>
-        <div className={styles.header}>
-          <div className={styles.status} />
-          <span>AI-Консультант</span>
-          <span
-            style={{ marginLeft: "auto", cursor: "pointer" }}
-            onClick={() => setSwitcher("site")}
-          >
-            Перейти на сайт
-          </span>
-        </div>
-
+        <div className={styles.header}>AI-Консультант</div>
         <div className={styles.messages}>
           {messages.map((msg, i) => (
             <div
@@ -84,27 +132,19 @@ export default function Chat({ setSwitcher }) {
               }`}
             >
               {msg.text}
-              {isTyping && i === messages.length - 1 && msg.from === "bot" && (
-                <span className={styles.cursor}>▍</span>
-              )}
             </div>
           ))}
           <div ref={bottomRef} />
         </div>
+      </div>
 
-        <div className={styles.inputBox}>
-          <input
-            type="text"
-            placeholder="Задайте вопрос об AI-автоматизации…"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-            disabled={isTyping}
-          />
-          <button onClick={sendMessage} disabled={isTyping}>
-            ➜
-          </button>
-        </div>
+      <div className={styles.inputDock}>
+        <input
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+        />
+        <button onClick={sendMessage}>➜</button>
       </div>
     </div>
   );
