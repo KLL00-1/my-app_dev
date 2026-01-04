@@ -122,7 +122,16 @@ export default function Chat({ setSwitcher }) {
     // </div>
     <div className={`${styles.wrapper} ${visible ? styles.show : ""}`}>
       <div className={styles.chat}>
-        <div className={styles.header}>AI-Консультант</div>
+        <div className={styles.header}>
+          <div className={styles.status} />
+          <span>AI-Консультант</span>
+          <span
+            style={{ marginLeft: "auto", cursor: "pointer" }}
+            onClick={() => setSwitcher("site")}
+          >
+            Перейти на сайт
+          </span>
+        </div>
         <div className={styles.messages}>
           {messages.map((msg, i) => (
             <div
@@ -137,7 +146,6 @@ export default function Chat({ setSwitcher }) {
           <div ref={bottomRef} />
         </div>
       </div>
-
       <div className={styles.inputDock}>
         <input
           value={input}
