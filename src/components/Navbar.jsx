@@ -7,18 +7,21 @@ import { usePathname, useRouter } from "next/navigation";
 // import { useRouter } from "next/compat/router";
 import { match } from "path-to-regexp";
 import { useEffect, useMemo, useState } from "react";
-import AnimatedLogo from "./Logo";
+import AIChatButton from "./Logo";
 
 export default function Navbar() {
+
+
   const path = usePathname();
   const styleObj = {
-    color: "#6b21a8",
-    textShadow: "0 0 22px #6b21a8",
+    color: "#3abef9",
+    textShadow: "0 0 22px #0578adff",
     textDecoration: "underline",
     paddingBottom: "5px",
     fontWeight: 900,
-    textShadow: "0 0 15px #6b21a8",
+    textShadow: "0 0 15px #0578adff",
   };
+
 
   const [width, setWidth] = useState(0);
   useEffect(() => setWidth(window.innerWidth), []);
@@ -100,7 +103,8 @@ export default function Navbar() {
         <div className={styles.logo}>
           <span style={{ color: "#3abef9" }}>AI</span>Systems
         </div>
-        {/* <AnimatedLogo /> */}
+        {/* <div onClick={()=>setSwitcher('chat')}>На главное меню</div> */}
+        <AIChatButton />
         {/* Desktop Menu */}
         <div className={styles.menuDesktop}>
           {menuItems.map((item) => (

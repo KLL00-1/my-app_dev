@@ -44,7 +44,7 @@
 }
 
 .menuItem:hover {
-  color: #b06bf6;
+  color: #3abef9;
 }
 
 .mobileMenu {
@@ -122,12 +122,3 @@
     top: -10px;
   }
 }
-/* @media (max-width: 500px) {
-  .mobileMenuItem {
-    font-size: 15px;
-    padding: 5px 0;
-    width: 140px;
-    right: -10px;
-    top: -10px;
-  }
-} */
