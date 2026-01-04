@@ -38,6 +38,7 @@
   position: fixed;
   /* bottom: 50px; */
   bottom: env(safe-area-inset-bottom);
+  top: env(safe-area-inset-top);
   /* top: 3px; */
   /* inset: 0; */
   background: radial-gradient(
@@ -243,7 +244,7 @@
   .chat {
     max-width: none;
     width: 95vw;
-    height: 80dvh;
+    height: 90dvh;
   }
   .inputDock {
     max-width: none;
