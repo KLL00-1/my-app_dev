@@ -60,7 +60,7 @@
 .chat {
   width: 100%;
   max-width: 50vw;
-  height: 100dvh; /* критично для iOS */
+  height: 100svh; /* критично для iOS */
   display: flex;
   flex-direction: column;
   color: #fff;
@@ -242,6 +242,6 @@
   .chat {
     max-width: none;
     width: 95vw;
-    height: 90dvh; /* критично для iOS */
+    height: 90svh;
   }
 }
