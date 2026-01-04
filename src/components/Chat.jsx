@@ -149,6 +149,7 @@ export default function Chat({ setSwitcher }) {
       <div className={styles.inputDock}>
         <input
           value={input}
+          placeholder="Задайте вопрос об AI-автоматизации…"
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && sendMessage()}
         />
