@@ -25,7 +25,8 @@
   width: 100%;
   color: #fff;
   max-width: 50vw;
-  height: 95svh;
+  /* height: 95svh; */
+  height: 100dvh;
   /* background: #0b0e13; */
   border-radius: 1.2rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
