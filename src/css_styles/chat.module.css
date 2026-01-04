@@ -40,7 +40,7 @@
   bottom: env(safe-area-inset-bottom);
   top: env(safe-area-inset-top);
   /* top: 3px; */
-  /* inset: 0; */
+  inset: 0;
   background: radial-gradient(
     circle at top,
     rgba(58, 190, 249, 0.15),
