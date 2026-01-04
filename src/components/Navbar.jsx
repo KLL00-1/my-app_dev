@@ -10,8 +10,6 @@ import { useEffect, useMemo, useState } from "react";
 import AIChatButton from "./Logo";
 
 export default function Navbar() {
-
-
   const path = usePathname();
   const styleObj = {
     color: "#3abef9",
@@ -21,7 +19,6 @@ export default function Navbar() {
     fontWeight: 900,
     textShadow: "0 0 15px #0578adff",
   };
-
 
   const [width, setWidth] = useState(0);
   useEffect(() => setWidth(window.innerWidth), []);
@@ -101,7 +98,9 @@ export default function Navbar() {
     <nav className={styles.navbar}>
       <div className={styles.container}>
         <div className={styles.logo}>
-          <span style={{ color: "#3abef9" }}>AI</span>Systems
+          <Link style={{textDecoration:'none', color:'white'}} href="/">
+            <span style={{ color: "#3abef9" }}>AI</span>Systems
+          </Link>
         </div>
         {/* <div onClick={()=>setSwitcher('chat')}>На главное меню</div> */}
         <AIChatButton />
