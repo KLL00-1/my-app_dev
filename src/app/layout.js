@@ -6,6 +6,7 @@ import BackgroundWaves from '@/components/Background'
 import AnimatedLogo from "@/components/Logo";
 import Footer from "@/components/Footer";
 import Start from "@/components/Start";
+import Head from "next/head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,11 +37,12 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <head> <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0"
-      />
-      </head>
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0"
+        />
+      </Head>
       <body className={`${geiRoboto.variable} ${geiRoboto.variable}`}>
         <Start />
         <BackgroundWaves />
