@@ -2,8 +2,6 @@ import Link from "next/link";
 import styles from "../css_styles/home.module.css";
 
 export default function Home() {
-
-
   return (
     <section className={styles.wrapper}>
       <div className={styles.content}>
@@ -24,8 +22,14 @@ export default function Home() {
           className={`${styles.buttons} ${styles.fadeInUp}`}
           style={{ animationDelay: "0.6s" }}
         >
-          <button className={styles.primaryBtn}>Запросить PoC</button>
-          <button className={styles.secondaryBtn}>Посмотреть кейсы →</button>
+          {/* <button className={styles.primaryBtn}>Запросить PoC</button> */}
+          <Link className={styles.primaryBtn} href="/what-we-do">
+            Что делаем →
+          </Link>
+          {/* <button className={styles.secondaryBtn}>Посмотреть кейсы →</button> */}
+          <Link className={styles.secondaryBtn} href="/cases">
+            Посмотреть кейсы →
+          </Link>
         </div>
       </div>
     </section>
