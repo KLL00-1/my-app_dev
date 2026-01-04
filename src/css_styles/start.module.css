@@ -60,6 +60,9 @@
   color: #b8b8b8;
   font-size: 1.05rem;
   margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(10vh);
+  animation: subtitleIn 2s ease forwards;
   /* text-align: left; */
 }
 
@@ -89,8 +92,6 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
-
 .button span {
   font-size: 0.85rem;
   font-weight: 400;
@@ -102,7 +103,7 @@
   background: rgba(255, 255, 255, 0.95);
   color: #0b0e13;
   /* animation-delay: 0.4s; */
-  animation-delay: 2s;
+  animation-delay: 1s;
 }
 
 .first:hover {
@@ -114,7 +115,7 @@
   background: linear-gradient(135deg, #3abef9, #2fa4dc);
   color: #fff;
   /* animation-delay: 0.6s; */
-  animation-delay: 2.4s;
+  animation-delay: 1.2s;
 }
 
 .second:hover {
@@ -127,6 +128,19 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@keyframes subtitleIn {
+  0%{
+    transform: translateY(10vh);
+    opacity: 0;
+  }
+  50%{
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
