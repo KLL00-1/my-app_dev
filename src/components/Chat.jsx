@@ -74,52 +74,6 @@ export default function Chat({ setSwitcher }) {
   };
 
   return (
-    // <div className={`${styles.wrapper} ${visible ? styles.show : ""}`}>
-    //   <div className={styles.chat}>
-    //     <div className={styles.header}>
-    //       <div className={styles.status} />
-    //       <span>AI-Консультант</span>
-    //       <span
-    //         style={{ marginLeft: "auto", cursor: "pointer" }}
-    //         onClick={() => setSwitcher("site")}
-    //       >
-    //         Перейти на сайт
-    //       </span>
-    //     </div>
-
-    //     <div className={styles.messages}>
-    //       {messages.map((msg, i) => (
-    //         <div
-    //           key={i}
-    //           className={`${styles.message} ${
-    //             msg.from === "bot" ? styles.bot : styles.user
-    //           }`}
-    //         >
-    //           {msg.text}
-    //           {isTyping && i === messages.length - 1 && msg.from === "bot" && (
-    //             <span className={styles.cursor}>▍</span>
-    //           )}
-    //         </div>
-    //       ))}
-    //       <div ref={bottomRef} />
-    //     </div>
-
-    //     <div className={styles.inputBox}>
-    //       <input
-    //         type="text"
-    //         placeholder="Задайте вопрос об AI-автоматизации…"
-    //         value={input}
-    //         onChange={(e) => setInput(e.target.value)}
-    //         onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-    //         disabled={isTyping}
-    //       />
-    //       <button onClick={sendMessage} disabled={isTyping}>
-    //         ➜
-    //       </button>
-    //     </div>
-
-    //   </div>
-    // </div>
     <div className={`${styles.wrapper} ${visible ? styles.show : ""}`}>
       <div className={styles.chat}>
         <div className={styles.header}>
