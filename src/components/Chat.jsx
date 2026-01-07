@@ -3,9 +3,20 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "../css_styles/chat.module.css";
 import { useMessagesState } from "@/stores/useStore";
+import { dalApi } from "@/app/dal.api";
+import { combineStringFunction } from "@/app/utils";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
-export default function Chat({ setSwitcher }) {
-  const { messages, setMessages, setMessagesForBot } = useMessagesState();
+export default function Chat({ setSwitcher, sessionId }) {
+  const {
+    messages,
+    setMessages,
+    setMessagesForBot,
+    deleteLastMessage,
+    setAnimatedMessage,
+  } = useMessagesState();
+
   const [input, setInput] = useState("");
   const [visible, setVisible] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
@@ -33,6 +44,7 @@ export default function Chat({ setSwitcher }) {
   useEffect(() => {
     if (initialized.current) return; // 👈 защита от double call
     initialized.current = true;
+
     setTimeout(() => setVisible(true), 200);
     if (!messages.length)
       setTimeout(() => {
@@ -42,9 +54,10 @@ export default function Chat({ setSwitcher }) {
 
   const typeBotMessage = (text) => {
     setIsTyping(true);
+
     let index = 0;
 
-    setMessages({ from: "bot", text: "" });
+    setMessages({ role: "assistant", content: "" });
     const interval = setInterval(() => {
       index++;
 
@@ -57,18 +70,57 @@ export default function Chat({ setSwitcher }) {
     }, 22); // скорость печати
   };
 
-  const sendMessage = () => {
+  // console.log(messages);
+
+  const sendMessage = async () => {
     if (!input.trim() || isTyping) return;
 
     const userText = input;
     setInput("");
-    setMessages({ from: "user", text: userText });
+    setMessages({ role: "user", content: userText });
 
-    // здесь будет работа с API от нейросети
+    const array = [...messages, { role: "user", content: userText }];
+
+    // setMessages({
+    //   role: "assistant",
+    //   content: combineStringFunction(userText, sessionId),
+    // });
+
+    // эти 2 метода, позволят мне совершать действия по символу и извлекать его из строки ответа бота
+
+    // return;
+
+    setMessages({ role: "assistant", content: "" });
+
+    let index = 0;
+    const interval = setInterval(() => {
+      index++;
+
+      setAnimatedMessage(index); // глобальный зустанд стайт для вывода сообщений от бота через печать
+
+
+      if (index >= 3) {
+        index = 0;
+      }
+    }, 200);
+    // console.log(messages);
+    const res = await dalApi.askBot(array);
+    clearInterval(interval);
+    deleteLastMessage();
+
+
+    const cleanAnswer = await combineStringFunction(res, sessionId);
+
+    dalApi.createNewSessionOrUpdateChat(sessionId, [
+      ...array,
+      { role: "assistant", content: cleanAnswer },
+    ]); // мы либо создаем новую сессию, либо обновляем чат, существующей сессии, вся логика происходит на сервере
+
 
     setTimeout(() => {
       typeBotMessage(
-        "Отличный вопрос. Я могу рассказать про AI-мониторинг линии сборки, предиктивную аналитику станков или корпоративный AI Hub. Что вам ближе?"
+        // "Отличный вопрос. Я могу рассказать про AI-мониторинг линии сборки, предиктивную аналитику станков или корпоративный AI Hub. Что вам ближе?"
+        cleanAnswer
       );
     }, 500);
   };
@@ -91,10 +143,16 @@ export default function Chat({ setSwitcher }) {
             <div
               key={i}
               className={`${styles.message} ${
-                msg.from === "bot" ? styles.bot : styles.user
+                msg.role === "assistant" ? styles.bot : styles.user
               }`}
             >
-              {msg.text}
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                {msg.content}
+              </ReactMarkdown>
+
+              {isTyping && i === messages.length - 1 && msg.from === "bot" && (
+                <span className={styles.cursor}>▍</span>
+              )}
             </div>
           ))}
           <div ref={bottomRef} />

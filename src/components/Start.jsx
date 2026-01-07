@@ -3,10 +3,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../css_styles/start.module.css";
 import Chat from "./Chat";
-import {useSwitcherState} from '@/stores/useStore';
+import { useSessionId, useSwitcherState } from "@/stores/useStore";
+import { v4 } from "uuid";
 
-const TITLE_TEXT =
-  "Как подружить ИИ\nи Ваш бизнес";
+const TITLE_TEXT = "Как подружить ИИ\nи Ваш бизнес";
 const HIGHLIGHTS = ["ИИ", "Ваш"];
 
 export default function Start() {
@@ -14,7 +14,12 @@ export default function Start() {
   const [title, setTitle] = useState("");
   const started = useRef(false);
 
-  const { switcher, setSwitcher} = useSwitcherState(); // теперь мы получаем это состояние из глобального стайт менеджера
+  const { switcher, setSwitcher } = useSwitcherState(); // теперь мы получаем это состояние из глобального стайт менеджера
+  const { sessionId, setSessionId } = useSessionId();
+
+  useEffect(() => {
+    if (!sessionId) setSessionId(v4()); // при первой загрузке создаём уникальный sessionId
+  }, []);
 
   // typing effect для заголовка
   useEffect(() => {
@@ -80,9 +85,7 @@ export default function Start() {
             <span className={styles.cursor}>▍</span>
           </h1>
 
-          <p className={styles.subtitle}>
-            Белая или голубая таблетка?
-          </p>
+          <p className={styles.subtitle}>Белая или голубая таблетка?</p>
 
           <div className={styles.actions}>
             <button
@@ -104,7 +107,9 @@ export default function Start() {
           </div>
         </>
       ) : (
-        switcher !== "site" && <Chat setSwitcher={setSwitcher} />
+        switcher !== "site" && (
+          <Chat setSwitcher={setSwitcher} sessionId={sessionId} />
+        )
       )}
     </div>
   );

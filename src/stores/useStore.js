@@ -17,9 +17,20 @@ export const useMessagesState = create((set) => ({
   messages: [],
   setMessages: (newMessage) => set((state) => ({ messages: [...state.messages, newMessage] })
   ),
+  setAnimatedMessage: (index) => set((state) => {
+    const updated = [...state.messages];
+    updated[updated.length - 1].content = '•••'.slice(0, index);
+    return ({ messages: updated })
+  }),
+  deleteLastMessage: () => set((state) => state.messages.pop()),
   setMessagesForBot: (newMessage, index) => set((state) => {
     const updated = [...state.messages];
-    updated[updated.length - 1].text = newMessage.slice(0, index);
+    updated[updated.length - 1].content = newMessage.slice(0, index);
     return ({ messages: updated })
   }),
 }))
+
+export const useSessionId = create((set) => ({
+  sessionId: null,
+  setSessionId: (id) => set((state) => ({ ...state, sessionId: id })),
+}));
