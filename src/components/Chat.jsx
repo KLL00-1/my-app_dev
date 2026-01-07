@@ -90,6 +90,12 @@ export default function Chat({ setSwitcher, sessionId }) {
 
     // return;
 
+    return  setTimeout(() => {
+      typeBotMessage(
+        'Мы работает над нашим ассистентом, нужно немного времени!'
+      );
+    }, 500);
+
     setMessages({ role: "assistant", content: "" });
 
     let index = 0;
@@ -111,7 +117,7 @@ export default function Chat({ setSwitcher, sessionId }) {
 
     const cleanAnswer = await combineStringFunction(res, sessionId);
 
-    dalApi.createNewSessionOrUpdateChat(sessionId, [
+    await dalApi.createNewSessionOrUpdateChat(sessionId, [
       ...array,
       { role: "assistant", content: cleanAnswer },
     ]); // мы либо создаем новую сессию, либо обновляем чат, существующей сессии, вся логика происходит на сервере
