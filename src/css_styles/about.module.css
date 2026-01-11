@@ -1,6 +1,5 @@
 .section {
   position: relative;
-  overflow-y: hidden;
 }
 
 .container {
@@ -87,9 +86,9 @@
   position: absolute;
   border: 1px solid #3abef9;
   border-radius: 10px;
-  top: 0;
+  bottom: 105%;
   left: 0;
-  opacity: 0;
+  transform: scale(0);
   transition: 0.3s;
 }
 .partner_container img:last-child {
@@ -105,8 +104,7 @@
   opacity: 1;
 }
 .partner_container:hover img:first-child {
-  opacity: 1;
-  transform: translate(0, -105%);
+  transform: scale(1);
 }
 
 /* Анимация появления */
