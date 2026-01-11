@@ -8,11 +8,10 @@ const CaseDetails = async ({ params }) => {
 
   return (
     <section className={styles.section}>
-      <Link className={styles.backLink} href={"/cases"}>
-        ←
-      </Link>
-
       <div className={styles.container}>
+        <Link className="come_back" href={"/cases"}>
+          ← назад
+        </Link>
         {id === "1" ? (
           <>
             <h1 className={styles.title}>AI-мониторинг линии сборки</h1>

@@ -4,8 +4,10 @@ import styles from "../../css_styles/privacy.module.css";
 export default function PrivacyPolicy() {
   return (
     <section className={styles.wrapper}>
+      <Link className="come_back" href={"/"}>
+        ← Назад
+      </Link>
       <div className={styles.container}>
-        <Link href={'/'}>Назад</Link>
         <h1 className={styles.title}>Политика конфиденциальности</h1>
 
         <p className={styles.text}>

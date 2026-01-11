@@ -63,7 +63,7 @@ const ProductDetails = async ({ params }) => {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <Link className={styles.back_link} href={"/products"}>←</Link>
+        <Link className='come_back' href={"/products"}>← назад</Link>
         <div className={styles.header}>
           <div className={`${styles.imageWrapper} ${styles.fadeInUp}`}>
             <img
