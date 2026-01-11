@@ -75,6 +75,9 @@ export default function Navbar() {
       case "/cases/3":
         counter = 2;
         break;
+      case "/privacy":
+        counter = 6;
+        break;
       default:
         break;
     }

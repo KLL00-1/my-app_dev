@@ -1,0 +1,83 @@
+.wrapper {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2000;
+}
+
+.notice {
+  pointer-events: auto;
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  opacity: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 0.9rem 1.2rem;
+  border-radius: 14px;
+
+  background: rgba(15, 20, 30, 0.75);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+
+  animation: slideUp 0.6s ease forwards;
+}
+
+.notice p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.notice span {
+  color: #3abef9;
+  font-weight: 500;
+}
+
+.notice button {
+  background: #3abef9;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.notice button:hover {
+  background: #2fa9e0;
+  transform: translateY(-1px);
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .notice {
+    width: calc(100% - 32px);
+    left: 16px;
+    transform: translateX(0) translateY(20px);
+  }
+
+  @keyframes slideUp {
+    to {
+      opacity: 1;
+      transform: translateX(0) translateY(0);
+    }
+  }
+}

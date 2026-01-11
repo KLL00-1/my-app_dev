@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "../../css_styles/about.module.css";
 
 export default function AboutCompany() {
@@ -48,10 +49,62 @@ export default function AboutCompany() {
           <div className={styles.partners}>
             <p className={styles.partnersTitle}>Нам доверяют:</p>
             <div className={styles.logos}>
-              <img src="/images/partner1.png" alt="Партнёр 1" />
-              <img src="/images/partner2.png" alt="Партнёр 2" />
-              <img src="/images/partner3.png" alt="Партнёр 3" />
-              <img src="/images/partner4.png" alt="Партнёр 4" />
+              <div className={styles.partner_container}>
+                <Image
+                  width={355}
+                  height={300}
+                  src="/___2025-1.png.webp"
+                  alt="Сертификат"
+                />
+                <Image
+                  width={355}
+                  height={150}
+                  src="/kaspersky.jpg"
+                  alt="Партнёр"
+                />
+              </div>
+              <div className={styles.partner_container}>
+                <Image
+                  width={355}
+                  height={400}
+                  src="/_______-1.png"
+                  alt="Сертификат"
+                />
+                <Image
+                  width={355}
+                  height={150}
+                  src="/astra_linux.png"
+                  alt="Партнёр"
+                />
+              </div>
+              <div className={styles.partner_container}>
+                <Image
+                  width={355}
+                  height={400}
+                  src="/___113_9195_03_2024-.png"
+                  alt="Сертификат"
+                />
+                <Image
+                  width={355}
+                  height={150}
+                  src="/red_soft.jpg"
+                  alt="Партнёр"
+                />
+              </div>
+              <div className={styles.partner_container}>
+                <Image
+                  width={355}
+                  height={400}
+                  src="/_-1.png"
+                  alt="Сертификат"
+                />
+                <Image
+                  width={355}
+                  height={150}
+                  src="/cyber_project.png"
+                  alt="Партнёр"
+                />
+              </div>
             </div>
           </div>
         </div>

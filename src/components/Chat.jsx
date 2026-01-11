@@ -90,9 +90,9 @@ export default function Chat({ setSwitcher, sessionId }) {
 
     // return;
 
-    return  setTimeout(() => {
+    return setTimeout(() => {
       typeBotMessage(
-        'Мы работает над нашим ассистентом, нужно немного времени!'
+        "Мы работает над нашим ассистентом, нужно немного времени!"
       );
     }, 500);
 
@@ -104,7 +104,6 @@ export default function Chat({ setSwitcher, sessionId }) {
 
       setAnimatedMessage(index); // глобальный зустанд стайт для вывода сообщений от бота через печать
 
-
       if (index >= 3) {
         index = 0;
       }
@@ -114,14 +113,12 @@ export default function Chat({ setSwitcher, sessionId }) {
     clearInterval(interval);
     deleteLastMessage();
 
-
     const cleanAnswer = await combineStringFunction(res, sessionId);
 
     await dalApi.createNewSessionOrUpdateChat(sessionId, [
       ...array,
       { role: "assistant", content: cleanAnswer },
     ]); // мы либо создаем новую сессию, либо обновляем чат, существующей сессии, вся логика происходит на сервере
-
 
     setTimeout(() => {
       typeBotMessage(
@@ -130,7 +127,7 @@ export default function Chat({ setSwitcher, sessionId }) {
       );
     }, 500);
   };
-
+  // console.log(messages);
   return (
     <div className={`${styles.wrapper} ${visible ? styles.show : ""}`}>
       <div className={styles.chat}>

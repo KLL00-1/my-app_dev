@@ -1,0 +1,52 @@
+.wrapper {
+  min-height: 100vh;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  padding: 40px 0;
+  padding-right: 20px;
+}
+
+.container {
+  /* max-width: 900px; */
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+}
+
+.subtitle {
+  margin-top: 2.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
+}
+
+.text {
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.list {
+  padding-left: 1.2rem;
+}
+
+.list li {
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.footer {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+@media (max-width: 950px) {
+  .title {
+    font-size: 35px;
+  }
+  .subtitle {
+    font-size: 20px;
+  }
+}

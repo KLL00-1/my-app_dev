@@ -2,8 +2,8 @@ import axios from "axios";
 
 
 
-// export const URL = "http://localhost:8020/";
-export const URL = "https://notification.pep-server.ru/";
+export const URL = "http://localhost:8080/";
+// export const URL = "https://notification.pep-server.ru/";
 
 
 const instance = axios.create({
