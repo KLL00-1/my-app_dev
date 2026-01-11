@@ -9,7 +9,7 @@ export default function ProductSection() {
       text: "Единая платформа для бизнеса, которая объединяет нейросети и инструменты автоматизации. Работайте с ChatGPT, Claude, Gemini и другими через единый интерфейс с аналитикой, безопасным хранением и доступами для сотрудников.",
       btn: "Подробнее о AI-Хаб",
       image:
-        "/compressed_vecteezy-ai-tech-businessman-show-virtual-graphic-global-internet-45364192_vabhblhm.mp4",
+        "/small-vecteezy_digital-transformation-technology-strategy-iot-internet-of_22925562_small.mp4",
     },
     {
       title: "AI-Автоматизация производств",
