@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from "react";
 import styles from "../../css_styles/calculator.module.css";
+import { useUIStore } from "@/stores/useStore";
 
 export default function RoiCalculator() {
   const [employees, setEmployees] = useState(100);
   const [salary, setSalary] = useState(80000);
   const [automation, setAutomation] = useState(20);
   const [roi, setRoi] = useState(0);
+  const { openForm } = useUIStore();
 
   useEffect(() => {
     const saved = employees * salary * (automation / 100) * 12;
@@ -28,7 +30,9 @@ export default function RoiCalculator() {
             Оцените, сколько ваша компания может сэкономить с внедрением
             AI-автоматизации.
           </p>
-          <button className={styles.get_offer}>Получить детальный рассчет</button>
+          <button onClick={openForm} className={styles.get_offer}>
+            Получить детальный рассчет
+          </button>
         </div>
         <div
           className={`${styles.calculator} ${styles.fadeInUp}`}
