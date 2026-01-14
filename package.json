@@ -13,6 +13,7 @@
     "path-to-regexp": "^8.3.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
+    "react-imask": "^7.6.1",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
     "uuid": "^13.0.0",

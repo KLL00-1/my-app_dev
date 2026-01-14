@@ -32,7 +32,11 @@ export default function Footer() {
             <div className={styles.column}>
               <h4 className={styles.title}>Следите за нами</h4>
               <div className={styles.socials}>
-                <a href="#" aria-label="Telegram">
+                <a
+                  href="https://t.me/ai_for_buisnes"
+                  target="_blank"
+                  aria-label="Telegram"
+                >
                   <img src="/icons/telegram.svg" alt="Telegram" />
                 </a>
                 {/* <a href="#" aria-label="LinkedIn">

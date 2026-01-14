@@ -1,22 +1,29 @@
+"use client";
 
-
+import { useUIStore } from "@/stores/useStore";
 import styles from "../../css_styles/contacts.module.css";
 
 export default function CallToAction() {
+  const { openForm } = useUIStore();
   return (
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.content}>
           <h2 className={styles.title}>Готовы внедрить AI в ваш бизнес?</h2>
           <p className={styles.subtitle}>
-            Свяжитесь с нами, чтобы обсудить задачи, провести аудит процессов и получить персональное AI-решение.
+            Свяжитесь с нами, чтобы обсудить задачи, провести аудит процессов и
+            получить персональное AI-решение.
           </p>
 
           <div className={styles.actions}>
-            <a href="mailto:info@aifuturelab.ru" className={styles.buttonPrimary}>
-              Написать нам
-            </a>
-            <a href="https://t.me/aifuturelab" target="_blank" className={styles.buttonSecondary}>
+            <div onClick={openForm} className={styles.buttonPrimary}>
+              Связаться с нами
+            </div>
+            <a
+              href="https://t.me/KLL001"
+              target="_blank"
+              className={styles.buttonSecondary}
+            >
               Telegram
             </a>
           </div>
@@ -25,15 +32,15 @@ export default function CallToAction() {
         <div className={styles.contacts}>
           <div>
             <h3>Контакты</h3>
-            <p>📍 Москва, Россия</p>
-            <p>✉️ info@aifuturelab.ru</p>
-            <p>📞 +7 (999) 123-45-67</p>
+            <p>📍 г Москва, Погорельский пер, д 5 стр 2, офис №30</p>
+            <p>✉️ sales@asrtratech.team</p>
+            <p>📞 +7 (901) 444-44-71</p>
           </div>
           <div>
             <h3>Соцсети</h3>
-            <a href="https://t.me/aifuturelab" target="_blank">Telegram</a>
-            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-            <a href="https://github.com" target="_blank">GitHub</a>
+            <a href="https://t.me/ai_for_buisnes" target="_blank">
+              Telegram
+            </a>
           </div>
         </div>
       </div>

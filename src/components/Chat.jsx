@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "../css_styles/chat.module.css";
-import { useMessagesState } from "@/stores/useStore";
+import { useMessagesState, useInitApplication } from "@/stores/useStore";
 import { dalApi } from "@/app/dal.api";
 import { combineStringFunction } from "@/app/utils";
 import ReactMarkdown from "react-markdown";
@@ -16,6 +16,8 @@ export default function Chat({ setSwitcher, sessionId }) {
     deleteLastMessage,
     setAnimatedMessage,
   } = useMessagesState();
+  const { setInitApp, isInitApp } = useInitApplication();
+  const initialized = useRef(false); // 👈 ГАРД
 
   const [input, setInput] = useState("");
   const [visible, setVisible] = useState(false);
@@ -39,17 +41,25 @@ export default function Chat({ setSwitcher, sessionId }) {
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
-  const initialized = useRef(false); // 👈 ГАРД
 
   useEffect(() => {
     if (initialized.current) return; // 👈 защита от double call
     initialized.current = true;
 
+    // при первой загрузке чата, подгружаем историю сообщений
+    // если массив приходит пустой, то ничего не делаем, если есть сообщения, то деструктурируем их в глобальный стейт messages
+    if(!isInitApp)
+    dalApi.getCurrentChat(sessionId).then((res) => {
+      if (!res?.length && !messages.length) {
+        setTimeout(() => {
+          typeBotMessage("Привет! 👋 Что ты хочешь узнать?");
+        }, 600);
+      } else {
+        res.forEach((msg) => setMessages(msg));
+      }
+    });
     setTimeout(() => setVisible(true), 200);
-    if (!messages.length)
-      setTimeout(() => {
-        typeBotMessage("Привет! 👋 Что ты хочешь узнать?");
-      }, 600);
+    setInitApp();
   }, []);
 
   const typeBotMessage = (text) => {
@@ -79,7 +89,7 @@ export default function Chat({ setSwitcher, sessionId }) {
     setInput("");
     setMessages({ role: "user", content: userText });
 
-    const array = [...messages, { role: "user", content: userText }];
+    const array = [{ role: "user", content: userText }];
 
     // setMessages({
     //   role: "assistant",
@@ -109,7 +119,7 @@ export default function Chat({ setSwitcher, sessionId }) {
       }
     }, 200);
     // console.log(messages);
-    const res = await dalApi.askBot(array);
+    const res = await dalApi.askBot([...messages, ...array]);
     clearInterval(interval);
     deleteLastMessage();
 

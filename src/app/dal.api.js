@@ -2,8 +2,8 @@ import axios from "axios";
 
 
 
-export const URL = "http://localhost:8080/";
-// export const URL = "https://notification.pep-server.ru/";
+// export const URL = "http://localhost:8080/";
+export const URL = "https://notification.pep-server.ru/";
 
 
 const instance = axios.create({
@@ -20,5 +20,11 @@ export const dalApi = {
     },
     addUserContacts: async (sessionId, email = null, phone = null, name = null) => {
         return instance.post("api/add-contacts", { sessionId, email, phone, name }).then(res => res.data)
+    },
+    getCurrentChat: async (id) => {
+        return instance.get(`api/get-chat/${id}`).then(res => res.data)
+    },
+    sendContacts: async (message) => {
+        return instance.post(`api/get-user-contacts`, { message }).then(res => res.data)
     }
 }

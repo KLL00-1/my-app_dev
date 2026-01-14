@@ -1,5 +1,14 @@
 import { create } from 'zustand';
 
+export const useInitApplication = create((set) => ({
+  isInitApp: false,
+  setInitApp: () => set({ isInitApp: true }),
+}));
+export const useUIStore = create((set) => ({
+  isFormOpen: false,
+  openForm: () => set({ isFormOpen: true }),
+  closeForm: () => set({ isFormOpen: false }),
+}));
 
 export const useSwitcherState = create((set) => ({
   switcher: null,

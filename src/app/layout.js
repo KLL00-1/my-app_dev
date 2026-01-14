@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import Start from "@/components/Start";
 import Head from "next/head";
 import CookieNotice from "@/components/CookieNotice";
+import GlobalForm from "@/components/GlobalForm";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,10 +28,72 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// export const viewport = {
+//   width: "device-width",
+//   initialScale: 1,
+//   maximumScale: 1,
+//   minimumScale: 1,
+//   userScalable: false,
+// }
+
+// export const metadata = {
+//   title: "AI-автоматизация и корпоративные AI-решения под ключ",
+//   description:
+//     "Разрабатываем индивидуальные AI-решения для бизнеса и производств: AI-мониторинг, предиктивная аналитика, корпоративный AI Hub. Проектирование, разработка и внедрение под ваши процессы.",
+
+//   keywords: [
+//     "AI автоматизация",
+//     "искусственный интеллект для бизнеса",
+//     "AI для производства",
+//     "предиктивная аналитика",
+//     "компьютерное зрение",
+//     "AI Hub",
+//     "AI решения под ключ",
+//     "автоматизация процессов",
+//     "AI интеграция",
+//   ],
+
+//   authors: [{ name: "AI Automation Team" }],
+//   creator: "AI Automation Team",
+//   publisher: "AI Automation",
+
+//   robots: {
+//     index: true,
+//     follow: true,
+//   },
+
+//   openGraph: {
+//     title: "AI-автоматизация и AI-решения под ключ",
+//     description:
+//       "Индивидуальные AI-решения для бизнеса и производств: от мониторинга линий сборки до корпоративных AI Hub.",
+//     type: "website",
+//     locale: "ru_RU",
+//     siteName: "AI Automation",
+//   },
+
+//   twitter: {
+//     card: "summary_large_image",
+//     title: "AI-автоматизация для бизнеса и производств",
+//     description:
+//       "Разработка и внедрение AI-решений под конкретные задачи бизнеса.",
+//   },
+
+
+// };
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  minimumScale: 1,
+  userScalable: false,
+};
+
 export const metadata = {
   title: "AI-автоматизация и корпоративные AI-решения под ключ",
   description:
     "Разрабатываем индивидуальные AI-решения для бизнеса и производств: AI-мониторинг, предиктивная аналитика, корпоративный AI Hub. Проектирование, разработка и внедрение под ваши процессы.",
+
+  applicationName: "AI Automation",
 
   keywords: [
     "AI автоматизация",
@@ -47,6 +110,15 @@ export const metadata = {
   authors: [{ name: "AI Automation Team" }],
   creator: "AI Automation Team",
   publisher: "AI Automation",
+
+  category: "Artificial Intelligence / Automation",
+
+  alternates: {
+    canonical: "https://ai.astratech.team",
+    languages: {
+      "ru-RU": "https://ai.astratech.team",
+    },
+  },
 
   robots: {
     index: true,
@@ -68,14 +140,6 @@ export const metadata = {
     description:
       "Разработка и внедрение AI-решений под конкретные задачи бизнеса.",
   },
-
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    minimumScale: 1,
-    userScalable: false,
-  },
 };
 
 
@@ -91,6 +155,7 @@ export default function RootLayout({ children }) {
         />
       </Head>
       <body className={`${geiRoboto.variable} ${geiRoboto.variable}`}>
+        <GlobalForm />
         <CookieNotice />
         <Start />
         <BackgroundWaves />

@@ -18,7 +18,15 @@ export default function Start() {
   const { sessionId, setSessionId } = useSessionId();
 
   useEffect(() => {
-    if (!sessionId) setSessionId(v4()); // при первой загрузке создаём уникальный sessionId
+    const id = window.localStorage.getItem("sessionId");
+    if (id) {
+      setSessionId(id); // если sessionId уже есть в локалсторадж, просто устанавливаем его в состояние
+    }
+    if (!sessionId && !id) {
+      const id = v4();
+      window.localStorage.setItem("sessionId", id);
+      setSessionId(id); // при первой загрузке создаём уникальный sessionId если он не был получен ранее
+    }
   }, []);
 
   // typing effect для заголовка
