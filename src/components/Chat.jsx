@@ -95,12 +95,11 @@ export default function Chat({ setSwitcher, sessionId }) {
 
     const array = [{ role: "user", content: userText }];
 
-
-    // return setTimeout(() => {
-    //   typeBotMessage(
-    //     "Мы работает над нашим ассистентом, нужно немного времени!"
-    //   );
-    // }, 500);
+    return setTimeout(() => {
+      typeBotMessage(
+        "Мы работает над нашим ассистентом, нужно немного времени!",
+      );
+    }, 500);
 
     setMessages({ role: "assistant", content: "" });
 
@@ -114,9 +113,8 @@ export default function Chat({ setSwitcher, sessionId }) {
         index = 0;
       }
     }, 200);
+
     const res = await dalApi.askBot([...messages, ...array]);
-    clearInterval(interval);
-    deleteLastMessage();
 
     const cleanAnswer = await combineStringFunction(res, sessionId);
 
@@ -124,11 +122,12 @@ export default function Chat({ setSwitcher, sessionId }) {
       ...array,
       { role: "assistant", content: cleanAnswer },
     ]); // мы либо создаем новую сессию, либо обновляем чат, существующей сессии, вся логика происходит на сервере
-
+    clearInterval(interval);
+    deleteLastMessage();
     setTimeout(() => {
       typeBotMessage(
         // "Отличный вопрос. Я могу рассказать про AI-мониторинг линии сборки, предиктивную аналитику станков или корпоративный AI Hub. Что вам ближе?"
-        cleanAnswer
+        cleanAnswer,
       );
     }, 500);
   };

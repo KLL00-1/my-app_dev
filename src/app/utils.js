@@ -19,6 +19,7 @@ export const combineStringFunction =
         let subStr = '';
         let result = str
 
+
         if (str.includes("📞")) {
             subStr = str.substring( // извлекаем целую подстроку вместе с триггер символами для ее дальнейшего удаления
                 getIndicesOf("📞", str)[0],
@@ -67,23 +68,23 @@ export const combineStringFunction =
             return result
 
     }
- export const validate = (formState, setError) => {
+export const validate = (formState, setError) => {
     const { name, phone, email } = formState;
     if (!name.trim() || !phone.trim() || !email.trim()) {
-      setError("Пожалуйста, заполните все поля");
-      return false;
+        setError("Пожалуйста, заполните все поля");
+        return false;
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      setError("Введите корректный email");
-      return false;
+        setError("Введите корректный email");
+        return false;
     }
     const digits = phone.replace(/\D/g, "");
     if (digits.length < 10) {
-      setError("Введите корректный телефон");
-      return false;
+        setError("Введите корректный телефон");
+        return false;
     }
     setError("");
     return true;
-  };
+};
 
