@@ -52,7 +52,7 @@ export default function Chat({ setSwitcher, sessionId }) {
       dalApi.getCurrentChat(sessionId).then((res) => {
         if (!res?.length && !messages.length) {
           setTimeout(() => {
-            typeBotMessage("Привет! 👋 Что ты хочешь узнать?");
+            typeBotMessage("Привет! Что ты хочешь узнать?");
           }, 600);
         } else {
           setMessages({
