@@ -95,11 +95,11 @@ export default function Chat({ setSwitcher, sessionId }) {
 
     const array = [{ role: "user", content: userText }];
 
-    return setTimeout(() => {
-      typeBotMessage(
-        "Мы работает над нашим ассистентом, нужно немного времени!",
-      );
-    }, 500);
+    // return setTimeout(() => {
+    //   typeBotMessage(
+    //     `Мы работает над нашим ассистентом, нужно немного времени!`
+    //   );
+    // }, 500);
 
     setMessages({ role: "assistant", content: "" });
 
