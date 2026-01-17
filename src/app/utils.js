@@ -19,6 +19,10 @@ export const combineStringFunction =
         let subStr = '';
         let result = str
 
+        let mobile = null
+        let email = null
+        let name = null
+
 
         if (str.includes("📞")) {
             subStr = str.substring( // извлекаем целую подстроку вместе с триггер символами для ее дальнейшего удаления
@@ -27,12 +31,11 @@ export const combineStringFunction =
             );
             // console.log('📞')
             result = result.replace(subStr, "")
-            const mobile = str.substring( // извлекаем только номер телефона из подстроки
+            mobile = str.substring( // извлекаем только номер телефона из подстроки
                 getIndicesOf("📞", str)[0] + 2,
                 getIndicesOf("📞", str)[1]
             )
-            await dalApi.addUserContacts(sessionId, null, mobile, null)
-            console.log(mobile);
+            // console.log(mobile);
             // далее можно совершать действия с номером телефона, например отправлять на сервер
         }
         if (str.includes("✉️")) {
@@ -42,12 +45,11 @@ export const combineStringFunction =
             );
             // console.log('✉️')
             result = result.replace(subStr, "")
-            const email = str.substring( // извлекаем только номер телефона из подстроки
+            email = str.substring( // извлекаем только номер телефона из подстроки
                 getIndicesOf("✉️", str)[0] + 2,
                 getIndicesOf("✉️", str)[1]
             )
-            await dalApi.addUserContacts(sessionId, email, null, null)
-            console.log(email);
+            // console.log(email);
         }
         if (str.includes("👤")) {
             subStr = str.substring( // извлекаем целую подстроку вместе с триггер символами для ее дальнейшего удаления
@@ -56,13 +58,16 @@ export const combineStringFunction =
             );
             // console.log('👤')
             result = result.replace(subStr, "")
-            const name = str.substring( // извлекаем только номер телефона из подстроки
+            name = str.substring( // извлекаем только номер телефона из подстроки
                 getIndicesOf("👤", str)[0] + 2,
                 getIndicesOf("👤", str)[1]
             )
-            await dalApi.addUserContacts(sessionId, null, null, name)
-            console.log(name);
+
+            // console.log(name);
         }
+        if (str.includes("📞") || str.includes("✉️") || str.includes("👤"))
+            await dalApi.addUserContacts(sessionId, email, mobile, name)
+
         if (!subStr) return str
         else
             return result
