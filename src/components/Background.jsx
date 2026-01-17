@@ -5,7 +5,8 @@ import { useEffect, useRef } from "react";
 
 export default function BackgroundWaves({
   background = "#0b0014",
-  lineColor = "rgba(124,58,237,0.35)", // #7c3aed with transparency
+  // lineColor = "rgba(124,58,237,0.35)", // #7c3aed with transparency
+  lineColor = "#3abef9", // #7c3aed with transparency
   speed = 0.03, // увеличение = быстрее
   amplitude = 340,
   frequency = 0.0008,

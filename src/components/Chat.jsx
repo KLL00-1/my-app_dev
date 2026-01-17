@@ -48,16 +48,20 @@ export default function Chat({ setSwitcher, sessionId }) {
 
     // при первой загрузке чата, подгружаем историю сообщений
     // если массив приходит пустой, то ничего не делаем, если есть сообщения, то деструктурируем их в глобальный стейт messages
-    if(!isInitApp)
-    dalApi.getCurrentChat(sessionId).then((res) => {
-      if (!res?.length && !messages.length) {
-        setTimeout(() => {
-          typeBotMessage("Привет! 👋 Что ты хочешь узнать?");
-        }, 600);
-      } else {
-        res.forEach((msg) => setMessages(msg));
-      }
-    });
+    if (!isInitApp)
+      dalApi.getCurrentChat(sessionId).then((res) => {
+        if (!res?.length && !messages.length) {
+          setTimeout(() => {
+            typeBotMessage("Привет! 👋 Что ты хочешь узнать?");
+          }, 600);
+        } else {
+          setMessages({
+            role: "assistant",
+            content: "Привет! 👋 Что ты хочешь узнать?",
+          }); // для того чтобы загружать в стейт первое сообщение от бота каждый раз
+          res.forEach((msg) => setMessages(msg));
+        }
+      });
     setTimeout(() => setVisible(true), 200);
     setInitApp();
   }, []);
@@ -91,20 +95,12 @@ export default function Chat({ setSwitcher, sessionId }) {
 
     const array = [{ role: "user", content: userText }];
 
-    // setMessages({
-    //   role: "assistant",
-    //   content: combineStringFunction(userText, sessionId),
-    // });
 
-    // эти 2 метода, позволят мне совершать действия по символу и извлекать его из строки ответа бота
-
-    // return;
-
-    return setTimeout(() => {
-      typeBotMessage(
-        "Мы работает над нашим ассистентом, нужно немного времени!"
-      );
-    }, 500);
+    // return setTimeout(() => {
+    //   typeBotMessage(
+    //     "Мы работает над нашим ассистентом, нужно немного времени!"
+    //   );
+    // }, 500);
 
     setMessages({ role: "assistant", content: "" });
 
@@ -118,7 +114,6 @@ export default function Chat({ setSwitcher, sessionId }) {
         index = 0;
       }
     }, 200);
-    // console.log(messages);
     const res = await dalApi.askBot([...messages, ...array]);
     clearInterval(interval);
     deleteLastMessage();
