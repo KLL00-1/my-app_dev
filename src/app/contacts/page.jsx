@@ -33,7 +33,7 @@ export default function CallToAction() {
           <div>
             <h3>Контакты</h3>
             <p>📍 г Москва, Погорельский пер, д 5 стр 2, офис №30</p>
-            <p>✉️ sales@asrtratech.team</p>
+            <p>✉️ ai@asrtratech.team</p>
             <p>📞 +7 (901) 444-44-71</p>
           </div>
           <div>
