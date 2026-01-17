@@ -55,6 +55,7 @@ export const metadata = {
     "автоматизация процессов",
     "AI интеграция",
   ],
+  icons: { icon: '/icon.svg', },
 
   authors: [{ name: "AI Automation Team" }],
   creator: "AI Automation Team",
