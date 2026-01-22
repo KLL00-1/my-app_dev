@@ -1,6 +1,6 @@
 "use client";
 
-import { useUIStore } from "@/stores/useStore";
+import { useUIStore } from "../../stores/useStore";
 import styles from "../../css_styles/contacts.module.css";
 
 export default function CallToAction() {

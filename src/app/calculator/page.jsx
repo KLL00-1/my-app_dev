@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import styles from "../../css_styles/calculator.module.css";
-import { useUIStore } from "@/stores/useStore";
+import { useUIStore } from "../../stores/useStore";
 
 export default function RoiCalculator() {
   const [employees, setEmployees] = useState(100);
