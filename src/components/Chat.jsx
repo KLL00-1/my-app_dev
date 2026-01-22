@@ -2,11 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "../css_styles/chat.module.css";
-import { useMessagesState, useInitApplication } from "@/stores/useStore";
-import { dalApi } from "@/app/dal.api";
-import { combineStringFunction } from "@/app/utils";
+import { useMessagesState, useInitApplication } from "../stores/useStore";
+import { dalApi } from "../app/dal.api";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { combineStringFunction } from "../app/utils";
 
 export default function Chat({ setSwitcher, sessionId }) {
   const {

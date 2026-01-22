@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from "react";
 import styles from "../css_styles/globalForm.module.css";
-import { useSwitcherState, useUIStore, useSessionId } from "@/stores/useStore";
+import { useSwitcherState, useUIStore, useSessionId } from "../stores/useStore";
 import { IMaskInput } from "react-imask";
-import { validate } from "@/app/utils";
-import { dalApi } from "@/app/dal.api";
+import { validate } from "../app/utils";
+import { dalApi } from "../app/dal.api";
 
 export default function GlobalForm() {
   const { isFormOpen, closeForm } = useUIStore();

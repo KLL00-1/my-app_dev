@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import styles from "../css_styles/cookieNotice.module.css";
-import { useSwitcherState } from "@/stores/useStore";
+import { useSwitcherState } from "../stores/useStore";
 
 export default function CookieNotice() {
   const [visible, setVisible] = useState(false);

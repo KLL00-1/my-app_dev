@@ -1,22 +1,19 @@
 
 import { Geist, Geist_Mono, Roboto } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import BackgroundWaves from '@/components/Background'
-import Footer from "@/components/Footer";
-import Start from "@/components/Start";
+import Navbar from "../components/Navbar";
+import BackgroundWaves from '../components/Background'
+import Footer from "../components/Footer";
+import Start from "../components/Start";
 import Head from "next/head";
-import CookieNotice from "@/components/CookieNotice";
-import GlobalForm from "@/components/GlobalForm";
+import CookieNotice from "../components/CookieNotice";
+import GlobalForm from "../components/GlobalForm";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
-// const geiPoppins = Poppins({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
+
 const geiRoboto = Roboto({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -38,60 +35,76 @@ export const viewport = {
 };
 
 export const metadata = {
-  title: "AI-автоматизация и корпоративные AI-решения под ключ",
-  description:
-    "Разрабатываем индивидуальные AI-решения для бизнеса и производств: AI-мониторинг, предиктивная аналитика, корпоративный AI Hub. Проектирование, разработка и внедрение под ваши процессы.",
+  metadataBase: new URL("https://ai.astratech.team"),
 
-  applicationName: "AI Automation",
+  title: {
+    default: "AI-автоматизация и корпоративные AI-решения под ключ",
+    template: "%s | AstraTech AI",
+  },
+
+  description:
+    "Разрабатываем кастомные AI-решения для бизнеса и производств: компьютерное зрение, предиктивная аналитика, AI Hub, автоматизация процессов под ключ.",
 
   keywords: [
     "AI автоматизация",
     "искусственный интеллект для бизнеса",
     "AI для производства",
-    "предиктивная аналитика",
+    "AI автоматизация процессов",
     "компьютерное зрение",
+    "предиктивная аналитика",
+    "корпоративный AI",
     "AI Hub",
     "AI решения под ключ",
-    "автоматизация процессов",
-    "AI интеграция",
   ],
+
+  authors: [{ name: "AstraTech AI Team" }],
+  creator: "AstraTech",
+  publisher: "AstraTech",
+
   icons: { icon: '/icon.svg', },
-
-  authors: [{ name: "AI Automation Team" }],
-  creator: "AI Automation Team",
-  publisher: "AI Automation",
-
-  category: "Artificial Intelligence / Automation",
-
-  alternates: {
-    canonical: "https://ai.astratech.team",
-    languages: {
-      "ru-RU": "https://ai.astratech.team",
-    },
-  },
 
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+    yandex: {
+      index: true,
+      follow: true,
+    },
+  },
+
+  alternates: {
+    canonical: "https://ai.astratech.team",
   },
 
   openGraph: {
+    type: "website",
+    locale: "ru_RU",
+    url: "https://ai.astratech.team",
+    siteName: "AstraTech AI",
     title: "AI-автоматизация и AI-решения под ключ",
     description:
       "Индивидуальные AI-решения для бизнеса и производств: от мониторинга линий сборки до корпоративных AI Hub.",
-    type: "website",
-    locale: "ru_RU",
-    siteName: "AI Automation",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "AI-автоматизация для бизнеса и производств",
+    title: "AI-автоматизация для бизнеса | AstraTech",
     description:
       "Разработка и внедрение AI-решений под конкретные задачи бизнеса.",
   },
 };
 
+
+/*
+<meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0"
+        />
+*/
 
 
 export default function RootLayout({ children }) {
@@ -99,10 +112,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <Head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0"
-        />
+
       </Head>
       <body className={`${geiRoboto.variable} ${geiRoboto.variable}`}>
         <GlobalForm />

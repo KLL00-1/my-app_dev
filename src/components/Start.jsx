@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../css_styles/start.module.css";
 import Chat from "./Chat";
-import { useSessionId, useSwitcherState } from "@/stores/useStore";
+import { useSessionId, useSwitcherState } from "../stores/useStore";
 import { v4 } from "uuid";
 
 const TITLE_TEXT = "Как подружить ИИ\nи Ваш бизнес";

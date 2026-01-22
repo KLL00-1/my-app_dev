@@ -1,6 +1,6 @@
 "use client";
 
-import { useSwitcherState } from "@/stores/useStore";
+import { useSwitcherState } from "../stores/useStore";
 import styles from "../css_styles/logo.module.css";
 
 export default function AIChatButton({}) {
