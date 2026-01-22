@@ -8,6 +8,7 @@ import Start from "../components/Start";
 import Head from "next/head";
 import CookieNotice from "../components/CookieNotice";
 import GlobalForm from "../components/GlobalForm";
+import YandexMetrika from "../components/YandexMetrika";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -115,6 +116,7 @@ export default function RootLayout({ children }) {
 
       </Head>
       <body className={`${geiRoboto.variable} ${geiRoboto.variable}`}>
+        <YandexMetrika counterId={106395733} />
         <GlobalForm />
         <CookieNotice />
         <Start />
